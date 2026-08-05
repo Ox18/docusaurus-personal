@@ -39,6 +39,14 @@ const config: Config = {
     locales: ['en'],
   },
 
+  // Habilita el renderizado real de diagramas Mermaid dentro de bloques
+  // ```mermaid. Sin esto, Docusaurus los muestra como texto/código plano
+  // — es exactamente lo que estaba pasando antes de este fix.
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
+
   presets: [
     [
       'classic',
