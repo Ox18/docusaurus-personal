@@ -259,3 +259,15 @@ A: Porque solo espera a que el contenedor arranque, no a que el proceso interno 
    - [ ] No tiene ningún efecto real
 
    *Explicación: Docker cachea cada instrucción como una capa; si copias todo el código antes de instalar dependencias, cualquier cambio de código invalida el cache de `npm install`, forzando una reinstalación completa innecesaria.*
+
+## 📖 Diccionario Rápido de Este Tema
+
+| Término | Qué significa | Contexto en este tema |
+|---|---|---|
+| **Imagen** | Una plantilla inmutable con todo lo necesario para correr una app (código, dependencias, configuración). | Es lo que construyes con un Dockerfile. |
+| **Contenedor** | Una instancia en ejecución de una imagen. | Como la diferencia entre una clase y un objeto en programación. |
+| **Namespace / cgroups** | Mecanismos del kernel de Linux que aíslan procesos y limitan sus recursos (CPU, memoria). | Es la tecnología real detrás del aislamiento de Docker — no es magia, es el kernel. |
+| **Multi-stage build** | Un Dockerfile con varias etapas, donde solo el resultado final de la compilación pasa a la imagen de producción. | La técnica clave para reducir el tamaño de la imagen. |
+| **Alpine Linux** | Una distribución de Linux minimalista, usada como base para imágenes Docker ligeras. | Por eso `node:20-alpine` pesa mucho menos que `node:20`. |
+| **Healthcheck** | Una instrucción que verifica si el proceso dentro del contenedor realmente está listo para recibir tráfico, no solo si arrancó. | Soluciona el problema de que `depends_on` no garantiza que el servicio esté "listo". |
+| **Capa (layer)** | Cada instrucción de un Dockerfile crea una "capa" cacheable. | Por eso el orden de las instrucciones en el Dockerfile importa tanto para el cache. |

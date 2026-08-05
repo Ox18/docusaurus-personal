@@ -206,3 +206,15 @@ A: Una herramienta que termina instancias de producción aleatoriamente en horar
 Q: ¿Por qué Netflix separa su CDN (Open Connect) de sus microservicios en AWS?
 A: Porque el volumen de tráfico de video (plano de datos) es órdenes de magnitud mayor que el de las decisiones de negocio (plano de control), y cada uno tiene requisitos de escalado completamente distintos.
 ```
+
+## 📖 Diccionario Rápido de Este Tema
+
+| Término | Qué significa | Contexto en este tema |
+|---|---|---|
+| **Chaos Monkey** | Herramienta de Netflix que apaga instancias de producción al azar, en horario laboral, para forzar resiliencia. | Nació de aceptar que AWS falla constantemente — mejor fallar controladamente que a las 3am. |
+| **Circuit Breaker** | Patrón que "abre el circuito" y deja de llamar a un servicio que está fallando repetidamente, respondiendo con un fallback en vez de esperar timeouts. | Implementado por Netflix en su herramienta Hystrix. |
+| **Service Discovery** | Mecanismo para que un servicio encuentre la dirección de red de otro sin tenerla escrita a mano (hardcoded). | Netflix lo resuelve con su herramienta Eureka. |
+| **CDN** | "Content Delivery Network" — servidores distribuidos geográficamente que entregan contenido (como video) cerca del usuario final. | Netflix construyó el suyo propio: Open Connect. |
+| **Plano de control vs. plano de datos** | Plano de control = decisiones y metadata (qué mostrar, facturación). Plano de datos = el contenido pesado en sí (el video). | Netflix los separa completamente: microservicios manejan el control, Open Connect maneja el video. |
+| **SLA** | "Service Level Agreement" — el compromiso formal de disponibilidad o rendimiento que un servicio promete cumplir. | Netflix diseña con degradación elegante para proteger su SLA de reproducción. |
+| **Zona de disponibilidad** | Un centro de datos físicamente independiente dentro de una región de la nube (AWS, en este caso). | Netflix opera en múltiples zonas para tolerar que una completa falle. |

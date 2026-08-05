@@ -337,3 +337,13 @@ A: Acciones de seguimiento con dueño y fecha concreta — sin eso, es solo una 
    - [ ] Los agradecimientos y saludos
 
    *Explicación: la pirámide invertida prioriza que el lector obtenga lo esencial de inmediato, dejando los detalles de soporte para quien quiera profundizar.*
+
+## 📖 Diccionario Rápido de Este Tema
+
+| Término | Qué significa | Contexto en este tema |
+|---|---|---|
+| **RFC** | "Request for Comments" — un documento que propone una decisión ANTES de tomarla, para que el equipo la discuta. | Se usa para debatir arquitectura antes de construir. |
+| **ADR** | "Architecture Decision Record" — documento que registra una decisión YA tomada, con el porqué y las alternativas descartadas. | Sirve para que alguien, años después, entienda por qué se hizo así. |
+| **6-pager** | Documento de 6 páginas en prosa completa (sin bullets) que Amazon usa en vez de presentaciones, para forzar pensamiento riguroso. | Ejemplo de cómo una cultura de escritura cambia la calidad de las decisiones. |
+| **Blameless (postmortem)** | Analizar un incidente enfocándose en el sistema y el proceso, nunca en culpar a una persona. | Aplica también a comunicación escrita: describe comportamiento, no caracterices a la persona. |
+| **Incident report** | Documento que resume qué pasó, cuándo, por qué y qué se hará al respecto tras una falla en producción. | Es el ejemplo práctico central de este tema. |

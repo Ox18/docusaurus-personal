@@ -153,3 +153,19 @@ A: Otra respuesta.
    - [ ] Opción D
 
    *Explicación: por qué B es correcta y por qué las otras no.*
+
+## 📖 Diccionario Rápido de Este Tema
+
+Si escribiste algún término técnico, jerga de industria o palabra en inglés
+sin explicarla en el cuerpo del tema, agrégala aquí. Esta sección es
+obligatoria si el tema usa 2 o más términos que un lector nuevo no
+conocería. Formato: como te lo explicaría un colega senior, no un
+diccionario formal.
+
+| Término | Qué significa | Contexto en este tema |
+|---|---|---|
+| **[Término]** | [Explicación en una oración, en español simple] | [Dónde/por qué aparece en este tema específico] |
+
+> Si un término aparece en **muchos** temas distintos (no solo este), no lo
+> repitas aquí cada vez — agrégalo una sola vez al
+> [Glosario Técnico](/glosario) global y enlázalo desde aquí.

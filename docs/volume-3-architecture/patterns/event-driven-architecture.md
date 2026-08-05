@@ -481,3 +481,14 @@ A: Porque cambiar el formato de un evento sin versionarlo rompe a todos los cons
    - [ ] Auditar cambios en un sistema para cumplimiento regulatorio
 
    *Explicación: cuando el flujo necesita una respuesta inmediata y consistente para continuar, una llamada síncrona directa es más simple y apropiada que introducir consistencia eventual.*
+
+## 📖 Diccionario Rápido de Este Tema
+
+| Término | Qué significa | Contexto en este tema |
+|---|---|---|
+| **Broker** | El intermediario que recibe eventos de un productor y los entrega a los consumidores (ej. Kafka, RabbitMQ). | Es la pieza central que hace posible el desacoplamiento en EDA. |
+| **Idempotente** | Una operación que da el mismo resultado sin importar cuántas veces la ejecutes. | Los consumidores de eventos deben serlo, porque un evento puede llegar duplicado. |
+| **Dead Letter Queue (DLQ)** | Una "cola de rechazados" donde van los eventos que un consumidor no logró procesar tras varios intentos. | Evita reintentar infinitamente un evento que siempre falla. |
+| **Schema Registry** | Un catálogo central que define y versiona la forma (estructura) de cada tipo de evento. | Previene que un cambio de formato rompa a consumidores sin que nadie se entere. |
+| **At-least-once delivery** | Garantía de que un mensaje se entregará una o más veces — nunca cero, pero puede duplicarse. | Es la garantía típica de la mayoría de brokers, por eso la idempotencia importa tanto. |
+| **Acoplamiento temporal** | Depender de que otro sistema esté disponible *en el mismo instante* para funcionar. | EDA lo reduce: el consumidor no necesita estar activo cuando se publica el evento. |

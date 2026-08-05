@@ -47,6 +47,13 @@ Salud mental, balance, hábitos de long-term learning.
 
 Presiona **Cmd+K** (Mac) o **Ctrl+K** (Windows/Linux) para buscar cualquier tema.
 
+## 📖 ¿Escuchaste una palabra que no conoces?
+
+Cada tema tiene, al final, un **Diccionario Rápido** con los términos que
+usa. Si algo no está ahí, revisa el [Glosario Técnico](/glosario) —
+jerga de industria como "sábana", "blameless", "canary release" y
+muchas más, explicadas sin rodeos.
+
 ---
 
 **Próximo paso**: Elige un volumen en el sidebar y comienza a explorar.

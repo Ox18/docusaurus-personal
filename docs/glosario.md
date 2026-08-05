@@ -1,0 +1,307 @@
+---
+id: glosario-tecnico
+title: "Glosario Técnico"
+description: "Jerga de ingeniería que vas a escuchar en el trabajo real y que nadie te explica formalmente — desde 'sábana' hasta 'blameless postmortem'."
+slug: /glosario
+sidebar_position: 0.5
+status: "published"
+last_updated: "2026-08-05"
+tags: [glosario, reference]
+---
+
+# Glosario Técnico
+
+Esta página existe por una razón muy concreta: vas a escuchar palabras en
+reuniones, en Slack, en code reviews — que nadie se molesta en explicar
+porque "todo el mundo las conoce". Spoiler: nadie nace sabiéndolas. Aquí
+están, explicadas como te las explicaría un colega senior en un café, no
+como las define un diccionario técnico formal.
+
+Está organizado alfabéticamente. Usa `Cmd+F` / `Ctrl+F` para buscar.
+
+> 💡 **Cómo usar esta página:** si en cualquier tema de EKS ves un término
+> que no reconoces y no está en el "Diccionario Rápido" al final de ese
+> tema, probablemente está aquí. Si no está ni aquí ni allá, es candidato
+> a agregarse — la jerga de la industria crece todo el tiempo.
+
+---
+
+## A
+
+**ADR (Architecture Decision Record)**
+Documento corto que registra una decisión de arquitectura ya tomada, junto
+con el contexto y las alternativas que se descartaron y por qué. Ver
+[Written Communication](/volume-1-soft-skills/communication/written-communication).
+
+**At-least-once delivery**
+Garantía de un sistema de mensajería de que un mensaje llegará una o más
+veces — nunca cero, pero puede llegar duplicado. Por eso los consumidores
+de eventos deben ser idempotentes.
+
+---
+
+## B
+
+**Backpressure**
+Cuando un sistema le "avisa" a quien le envía datos que vaya más despacio
+porque no da abasto — como decirle a alguien que hable más lento porque no
+alcanzas a anotar. Común en streams de datos y colas de mensajes.
+
+**Bikeshedding**
+Gastar más tiempo debatiendo un detalle trivial (el color de un botón) que
+una decisión realmente importante (la arquitectura del sistema), porque el
+detalle trivial es más fácil de opinar para todos.
+
+**Blameless (postmortem)**
+Analizar un incidente asumiendo que cualquier persona, con la misma
+información y presión de tiempo, habría cometido el mismo error — la
+pregunta nunca es "¿quién falló?" sino "¿qué en el sistema permitió esto?".
+
+**Boilerplate**
+Código repetitivo que tienes que escribir una y otra vez para que algo
+funcione, sin que aporte lógica de negocio real (configuración inicial,
+imports, estructura estándar).
+
+**Brownfield vs. Greenfield**
+Greenfield = proyecto nuevo, sin código previo, "campo verde". Brownfield =
+proyecto existente con historia, deuda técnica y decisiones heredadas —
+"campo ya construido".
+
+---
+
+## C
+
+**Canary release (despliegue canario)**
+Lanzar una nueva versión a un pequeño porcentaje de usuarios primero (1-5%)
+para detectar problemas antes de exponerla a todos. El nombre viene de los
+canarios que los mineros usaban para detectar gas tóxico antes de que
+afectara a las personas.
+
+**Circuit Breaker**
+Patrón que "corta el circuito" hacia un servicio que está fallando
+repetidamente, respondiendo con un fallback rápido en vez de seguir
+intentando y agotar recursos esperando timeouts.
+
+**Cold start**
+El tiempo extra que tarda un sistema (especialmente serverless) en
+responder la primera vez, porque tiene que "arrancar" desde cero antes de
+procesar la petición.
+
+---
+
+## D
+
+**Dead Letter Queue (DLQ)**
+La "cola de rechazados": donde van los mensajes o eventos que un sistema
+no pudo procesar después de varios intentos, para revisarlos manualmente
+en vez de perderlos o reintentarlos infinitamente.
+
+**Deuda técnica**
+Atajos tomados a propósito para entregar más rápido, que "cobran interés"
+en forma de más esfuerzo futuro para mantener o extender ese código. No es
+inherentemente malo — es una decisión, igual que la deuda financiera.
+
+---
+
+## E
+
+**Eventual consistency (consistencia eventual)**
+Garantía de que, si dejas de escribir datos nuevos, el sistema
+*eventualmente* llegará a un estado consistente — pero no lo garantiza
+instantáneamente. Común en sistemas distribuidos que priorizan
+disponibilidad sobre consistencia inmediata.
+
+---
+
+## F
+
+**Feature flag**
+Un interruptor en el código que permite prender o apagar una
+funcionalidad sin desplegar código nuevo — útil para lanzar features
+gradualmente o desactivar algo roto sin un rollback completo.
+
+---
+
+## G
+
+**God object / God class**
+Una clase u objeto que sabe y hace demasiado, tocando responsabilidades de
+todo el sistema. El primo cercano del anti-patrón "Big Ball of Mud".
+
+---
+
+## H
+
+**Hotfix**
+Una corrección urgente que se despliega directo a producción, saltándose
+(o acelerando) el proceso normal de revisión, porque algo crítico está
+roto ahora mismo.
+
+---
+
+## I
+
+**Idempotente**
+Una operación que da el mismo resultado sin importar cuántas veces la
+ejecutes. "Poner el interruptor en ON" es idempotente (da igual cuántas
+veces lo hagas, queda en ON). "Sumar 1" no lo es.
+
+---
+
+## L
+
+**Legacy (código legado)**
+Código antiguo que sigue en producción, generalmente sin documentación
+clara ni el contexto original de por qué se hizo así — no es un insulto,
+es una descripción neutral de código con historia.
+
+---
+
+## M
+
+**Monolito**
+Aplicación donde toda la lógica de negocio vive en un único proceso
+desplegado como una sola unidad. Ver el tema completo en
+[Arquitectura Monolítica](/volume-3-architecture/fundamentals/monolith-architecture).
+
+---
+
+## N
+
+**North Star metric**
+La única métrica que un equipo o producto elige como la más importante de
+todas, la que mejor predice el éxito a largo plazo — todo lo demás se
+prioriza en función de si mueve esa métrica.
+
+---
+
+## O
+
+**On-call (guardia)**
+El turno en que un ingeniero es responsable de responder alertas e
+incidentes de producción, incluso fuera de horario laboral.
+
+---
+
+## P
+
+**P0 / P1 / P2 (niveles de severidad)**
+Clasificación de qué tan grave es un incidente. P0 = "todo está caído,
+detén lo que estás haciendo". P1 = grave pero no total. P2 = importante
+pero puede esperar hasta el próximo día hábil. Los números y su
+significado exacto varían por empresa.
+
+**Playbook / Runbook**
+Documento con los pasos exactos a seguir ante una situación conocida (ej.
+"la base de datos está lenta") — para no tener que pensar desde cero en
+medio de un incidente.
+
+**Polling vs. Push**
+Polling = preguntar repetidamente "¿ya hay algo nuevo?" a intervalos.
+Push = el otro sistema te avisa activamente cuando hay algo nuevo, sin que
+tengas que preguntar.
+
+**POC (Proof of Concept)**
+Una versión mínima construida solo para demostrar que una idea técnica
+*puede* funcionar — no está pensada para producción ni para durar.
+
+---
+
+## R
+
+**Race condition**
+Un bug que ocurre porque dos procesos acceden o modifican el mismo dato al
+mismo tiempo, y el resultado depende de "quién llegó primero" — impredecible
+y notoriamente difícil de reproducir.
+
+**Rate limiting (throttling)**
+Limitar cuántas peticiones puede hacer un cliente en un periodo de tiempo,
+para proteger el sistema de ser saturado (a propósito o por accidente).
+
+**Rollback**
+Revertir un cambio o despliegue a la versión anterior, generalmente porque
+la nueva versión introdujo un problema.
+
+**RFC (Request for Comments)**
+Documento que propone una decisión *antes* de tomarla, para que el equipo
+la discuta y aporte antes de implementar.
+
+---
+
+## S
+
+**Sábana**
+Término muy usado en equipos de datos/BI en Latinoamérica para referirse a
+una **tabla ancha y desnormalizada** — una sola tabla gigante con
+muchísimas columnas, resultado de unir (hacer `JOIN`) varias tablas
+normalizadas en una sola, "extendida como una sábana". Se usa mucho para
+reportes y dashboards, porque evita tener que hacer `JOIN`s complejos en
+cada consulta — el costo es que ocupa más espacio y puede tener datos
+repetidos. Si un compañero de datos te dice "arma la sábana de ventas",
+te está pidiendo esa tabla ancha con todo lo relevante de ventas ya unido.
+
+**Sharding**
+Dividir una base de datos grande en piezas más pequeñas ("shards"),
+generalmente distribuidas en distintos servidores, para que ninguna pieza
+sola tenga que cargar con todo el volumen de datos o tráfico.
+
+**Sidecar (patrón)**
+Un proceso auxiliar que corre junto a tu aplicación principal (en el mismo
+pod/contenedor) para encargarse de una responsabilidad transversal —
+logging, seguridad, proxy de red— sin que la aplicación principal tenga
+que saber de ello.
+
+**SLA / SLO / SLI**
+SLA (Service Level Agreement) = el compromiso formal con el cliente (ej.
+"99.9% de disponibilidad"). SLO (Objective) = la meta interna que te
+propones para cumplir el SLA con margen. SLI (Indicator) = la métrica real
+que mides para saber si estás cumpliendo el SLO.
+
+**Spike (technical spike)**
+Una investigación acotada en tiempo para responder una pregunta técnica
+específica ("¿esta librería aguanta nuestra carga?") antes de comprometerse
+a construir algo con ella.
+
+---
+
+## T
+
+**Tech debt** — ver **Deuda técnica**.
+
+---
+
+## V
+
+**Vendor lock-in**
+Quedar tan dependiente de las herramientas o servicios de un proveedor
+específico que cambiarte a otro sale carísimo o casi imposible. Uno de los
+principios de EKS es evitarlo deliberadamente (ver
+[EKS_ARCHITECTURE.md](https://github.com/Ox18/docusaurus-personal)).
+
+---
+
+## W
+
+**WIP (Work In Progress)**
+Trabajo que está en curso, no terminado — común como etiqueta en tableros
+Kanban o en el título de un Pull Request que aún no está listo para
+revisión completa.
+
+---
+
+## Y
+
+**Yak shaving**
+Cuando terminas haciendo una tarea completamente distinta a la que
+empezaste, porque cada paso reveló otro prerequisito ("para arreglar A
+necesito B, para B necesito C..."), hasta que ya no recuerdas por qué
+empezaste. El nombre viene de una tira cómica sobre afeitar un yak para
+conseguir... una cadena de favores completamente absurda.
+
+---
+
+## ¿Falta un término?
+
+Este glosario crece con el proyecto. Si escuchas una palabra en el trabajo
+que no entendiste y no está aquí, es señal de que hay que agregarla —
+anótala en tu [Personal Knowledge](/volume-7) y luego súmala aquí.

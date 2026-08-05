@@ -641,3 +641,17 @@ A: Transacciones ACID reales entre distintos módulos de negocio, garantizadas p
    - [ ] "Ya llevamos 6 meses con el mismo repositorio"
 
    *Explicación: las decisiones arquitectónicas deben basarse en evidencia medible (técnica u organizacional), no en tamaño percibido o tendencias de la industria.*
+
+## 📖 Diccionario Rápido de Este Tema
+
+Si algún término de arriba no te sonó familiar, aquí está explicado en corto —
+como te lo explicaría un senior en un pasillo, no un libro de texto.
+
+| Término | Qué significa | Contexto en este tema |
+|---|---|---|
+| **Acoplamiento de despliegue** | Que no puedas actualizar una parte del sistema sin re-desplegar todo lo demás. | Es la característica que define técnicamente a un monolito. |
+| **ACID** | Siglas de Atomicidad, Consistencia, Aislamiento, Durabilidad — las garantías que da una transacción de base de datos bien hecha. | Un monolito las obtiene "gratis" al compartir una sola base de datos. |
+| **Blast radius** | Qué tanto del sistema se ve afectado cuando algo falla. Literalmente, "radio de la explosión". | Un bug en un monolito puede tener blast radius grande: afecta todo el proceso. |
+| **Big Ball of Mud** | Anti-patrón donde el código perdió toda estructura interna clara, sin importar la arquitectura. | No es un problema exclusivo de monolitos — es falta de disciplina de límites internos. |
+| **WAR (Java)** | "Web Application Archive" — el formato en que se empaquetaba una app Java para desplegarla como una sola unidad. | Ejemplo histórico de cómo se desplegaban los monolitos antes de Docker. |
+| **Ley de Conway** | La arquitectura de un sistema tiende a copiar la estructura de comunicación del equipo que lo construye. | Explica por qué equipos grandes migran a microservicios: no es solo técnico, es organizacional. |
