@@ -1,0 +1,8 @@
+{
+  "label": "🔬 Case Studies",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Arquitecturas reales de la industria: Netflix, Uber, Amazon, Spotify, Discord, WhatsApp, Stripe, banca, pasarelas de pago, ERP, CRM, IoT y streaming. Requiere haber completado Fundamentals y Patterns."
+  }
+}

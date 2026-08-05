@@ -25,7 +25,11 @@ const config: Config = {
   organizationName: 'facebook', // Usually your GitHub org/user name.
   projectName: 'docusaurus', // Usually your repo name.
 
-  onBrokenLinks: 'warn',
+  // Ahora en 'throw': con la estructura actual el build está 100% limpio.
+  // Lo dejamos estricto para detectar links rotos en el momento en que
+  // se introducen, no meses después cuando ya sea difícil rastrear cuál
+  // de docenas de temas nuevos rompió qué.
+  onBrokenLinks: 'throw',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -40,27 +44,22 @@ const config: Config = {
       'classic',
       {
         docs: {
+          // EKS es un sitio 100% de documentación — no hay contenido fuera
+          // de /docs, así que lo servimos directamente en la raíz. Esto
+          // también es lo que hace que `slug: "/"` en intro.md funcione
+          // como página de inicio real (antes resolvía a "/docs/", no a "/").
+          routeBasePath: '/',
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: 'https://github.com/Ox18/docusaurus-personal/tree/main/',
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        // Sin blog: EKS no lo necesita, y dejarlo activo con contenido
+        // placeholder solo añade rutas y links rotos sin valor real.
+        blog: false,
+        // Sin pages: el homepage placeholder de Docusaurus (src/pages/index.tsx)
+        // competía por la ruta "/" con intro.md. Desactivar el plugin de
+        // pages es más seguro que borrar esos archivos a mano vía el
+        // puente remoto — simplemente deja de construirlos.
+        pages: false,
         theme: {
           customCss: './src/css/custom.css',
         },

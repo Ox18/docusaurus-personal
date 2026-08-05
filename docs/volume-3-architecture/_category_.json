@@ -1,0 +1,8 @@
+{
+  "label": "🏗️ Volumen III — Architecture & System Design",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Cómo diseñar sistemas que escalan: fundamentos, patrones distribuidos y casos de estudio reales."
+  }
+}
