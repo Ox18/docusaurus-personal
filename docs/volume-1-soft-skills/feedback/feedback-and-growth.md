@@ -11,8 +11,8 @@ prerequisites: [written-communication]
 related_topics: [leadership-mindset, negotiation]
 tags: [soft-skills, feedback, growth, mentorship]
 has_labs: false
-has_case_studies: false
-gem_count: 4
+has_case_studies: true
+gem_count: 5
 ---
 
 # Feedback y Crecimiento Continuo
@@ -154,6 +154,41 @@ graph TD
 > otra persona. Pedir feedback específico ("¿cómo estuvo mi manejo de la discusión de arquitectura de
 > hoy? ¿Hablé demasiado en algún punto?") produce respuestas mucho más útiles, porque le das a la otra
 > persona un ángulo concreto sobre el cual pensar en vez de pedirle que genere el ángulo desde cero.
+
+## 🏢 Caso Real: El Braintrust de Pixar
+
+Ed Catmull, cofundador de Pixar, documentó en su libro *Creativity, Inc.* (2014) el "Braintrust": una
+reunión periódica donde los directores de cada película presentan su corte actual a un grupo de otros
+directores y guionistas senior, para recibir feedback brutalmente honesto — de hecho, casi todas las
+películas de Pixar en algún punto de producción "no funcionan" y necesitan reescrituras grandes gracias
+a este proceso (Toy Story 2 y Ratatouille son ejemplos documentados públicamente).
+
+```mermaid
+graph TD
+    A["🎬 Director presenta\ncorte actual de la película"] --> B["🧠 Braintrust:\npares senior dan feedback\nbrutalmente honesto"]
+    B --> C{"Regla de oro:\nel feedback es sobre\nla película, NO sobre\nla persona"}
+    C --> D["El director decide\nqué cambios adoptar\n— NO es obligatorio\nseguir cada nota"]
+    D --> E["Nueva versión →\nvuelve al Braintrust\nen la siguiente ronda"]
+    E -.->|ciclo continuo| A
+
+    style B fill:#fff3e0
+    style C fill:#e1f5fe
+    style D fill:#c8e6c9
+```
+
+Dos reglas del Braintrust son las que lo hacen funcionar y son directamente trasladables a code reviews
+y retros de ingeniería: (1) el feedback se dirige siempre al trabajo, nunca a la persona que lo hizo —
+la separación exacta que describe el modelo SBI de este tema — y (2) quien recibe el feedback conserva
+la autoridad de decidir qué cambios hacer; nadie más puede imponerlos. Esa segunda regla es la que
+evita que el feedback brutal se sienta como un ataque: la persona sabe que sigue teniendo el control
+final, así que puede escuchar sin ponerse a la defensiva.
+
+> 💎 **Perla Escondida #5**: la razón por la que "el director decide, no está obligado a seguir cada
+> nota" hace que el Braintrust funcione mejor, no peor, es contraintuitiva: cuando la gente sabe que su
+> feedback es una sugerencia y no una orden, se siente más segura dando feedback honesto y arriesgado —
+> no tiene que suavizarlo por miedo a que se imponga sin cuestionamiento. Equipos donde el feedback de
+> un superior se vuelve automáticamente obligatorio generan el efecto contrario: la gente empieza a
+> callarse las notas más arriesgadas o poco convencionales, precisamente las que más valor podrían tener.
 
 ## ⚖️ Trade-offs
 

@@ -20,8 +20,8 @@ tags:
   - adr
 
 has_labs: false
-has_case_studies: false
-gem_count: 3
+has_case_studies: true
+gem_count: 4
 ---
 
 # RFC y Architecture Decision Records (ADR)
@@ -181,6 +181,41 @@ Aceptamos ese costo a cambio de consistencia transaccional real.
 
 Un ADR bueno es **corto** (media página a una página) — si necesitas más
 de eso, probablemente es un RFC, no un ADR.
+
+## 🏢 Caso Real: Design Docs en Google
+
+Google documentó públicamente (a través del ensayo ampliamente citado *"Design Docs at Google"* de
+Malte Ubl, ex-ingeniero de Google, y confirmado por múltiples ingenieros en charlas y blogs técnicos) su
+práctica interna de escribir un **Design Doc** — esencialmente un RFC — antes de cualquier proyecto de
+ingeniería de tamaño significativo, revisado por ingenieros senior antes de que se escriba una sola línea
+de código de producción.
+
+```mermaid
+graph TD
+    A["Ingeniero identifica un\nproyecto de tamaño significativo"] --> B["Escribe Design Doc:\nContexto, Objetivos,\nDiseño, Alternativas"]
+    B --> C["Comparte con ingenieros\nsenior relevantes\n(revisores designados)"]
+    C --> D{"¿Hay objeciones\nde fondo?"}
+    D -->|Sí| E["Se itera el documento\nANTES de escribir código"]
+    E --> C
+    D -->|No| F["✅ Aprobado —\nrecién ahora empieza\nla implementación"]
+
+    style F fill:#c8e6c9
+    style E fill:#fff3e0
+```
+
+Lo que hace que esta práctica escale a una empresa con decenas de miles de ingenieros es que el Design
+Doc tiene una sección de **Alternativas Consideradas** obligatoria — igual que el RFC de este tema — y
+que la revisión ocurre *antes* de invertir semanas de código, no después. Ubl documenta que Google
+estima que corregir un problema de diseño detectado en la fase de Design Doc cuesta órdenes de magnitud
+menos que corregirlo una vez que el sistema ya está en producción, precisamente porque el documento es
+mucho más barato de reescribir que el código y la infraestructura ya desplegada.
+
+> 💎 **Perla escondida #4**: la práctica de Google refuerza algo que ya vimos con las decisiones "tipo
+> 1 vs. tipo 2" de Bezos: el costo de revisar un RFC/Design Doc es fijo y pequeño (unas horas de lectura
+> de varios ingenieros senior), mientras que el costo de descubrir el mismo problema en producción es
+> variable y potencialmente enorme (rediseño, migración de datos, downtime). Esto es lo que hace que
+> invertir tiempo en RFCs para decisiones tipo 1 casi siempre tenga retorno positivo, aunque en el
+> momento se sienta como "burocracia que retrasa escribir código".
 
 ## ⚖️ Trade-offs
 

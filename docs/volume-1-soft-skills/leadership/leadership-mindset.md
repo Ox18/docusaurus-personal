@@ -12,7 +12,7 @@ related_topics: [feedback-and-growth, negotiation, technical-writing-rfc]
 tags: [soft-skills, leadership, ownership, career-growth]
 has_labs: false
 has_case_studies: true
-gem_count: 4
+gem_count: 5
 ---
 
 # Ownership y Liderazgo Técnico sin Autoridad
@@ -149,6 +149,47 @@ graph LR
 > explícitamente por qué elegiste la tuya sobre esa alternativa. Esto cambia la conversación de "¿tiene
 > razón o no?" (defensiva) a "¿cuál de estas dos opciones es mejor?" (colaborativa) — la gente rara vez
 > defiende un ego cuando ya ve que consideraste seriamente su punto de vista antes de descartarlo.
+
+## 🏢 Caso Real: El Apagón de AWS S3 (28 de febrero de 2017)
+
+Un ingeniero de AWS, siguiendo un playbook de mantenimiento para el subsistema de facturación de S3
+en la región us-east-1, escribió mal un comando destinado a retirar unos pocos servidores — el comando
+retiró muchos más servidores de los previstos, incluyendo subsistemas críticos que sostenían el índice
+de metadatos de S3. El resultado: S3 completo (y media Internet que dependía de él — sitios, apps,
+paneles de otras empresas de AWS) quedó degradado durante ~4 horas.
+
+```mermaid
+sequenceDiagram
+    participant Ing as Ingeniero
+    participant S3 as Sistema S3
+    participant Eq as Equipo AWS
+    participant Pub as Público (AWS status page)
+
+    Ing->>S3: Ejecuta comando de mantenimiento (typo en el alcance)
+    S3->>S3: Retira más capacidad de la prevista
+    S3--xEq: Subsistemas de índice caen en cascada
+    Eq->>Eq: Declara el incidente, inicia respuesta
+    Eq->>Pub: Comunica el impacto en tiempo real (status page)
+    Eq->>S3: Reinicia subsistemas — restart lento por el tamaño del índice
+    Eq->>Pub: Publica post-mortem público y detallado tras el incidente
+    Note over Eq,Pub: Ownership real: sin culpar al ingeniero,<br/>con causa raíz y remediaciones concretas
+```
+
+Lo relevante para este tema no es el error (cualquiera puede escribir mal un comando) — es la respuesta:
+AWS publicó un post-mortem público, detallado y sin buscar un culpable individual, explicando la causa
+raíz exacta y los cambios concretos que se implementaron para que ese tipo de error no pudiera volver a
+tener ese alcance (límites más estrictos en cuánta capacidad se puede retirar de una sola vez, y
+rediseño para que el sistema de monitoreo no dependiera del propio S3 para funcionar). Es el mismo
+principio de ownership de este tema, aplicado a escala de toda una empresa: tratar el problema como
+propio del sistema, no de una persona, y arreglar la causa estructural en vez de solo señalar quién lo
+causó.
+
+> 💎 **Perla Escondida #5**: los post-mortems públicos y sin culpables no son solo "buena cultura" —
+> son una decisión estratégica de ownership colectivo. Si la narrativa interna fuera "fulano rompió S3",
+> el aprendizaje se quedaría en una sola persona teniendo más cuidado la próxima vez. Al enfocarse en el
+> sistema (¿por qué el comando pudo tener tanto alcance? ¿por qué el monitoreo dependía del propio
+> servicio que monitoreaba?), el aprendizaje se convierte en una mejora que protege a *cualquier*
+> ingeniero que use ese sistema en el futuro — ownership del sistema, no vigilancia de personas.
 
 ## ⚖️ Trade-offs
 

@@ -247,6 +247,16 @@ cada consulta — el costo es que ocupa más espacio y puede tener datos
 repetidos. Si un compañero de datos te dice "arma la sábana de ventas",
 te está pidiendo esa tabla ancha con todo lo relevante de ventas ya unido.
 
+> **Ojo:** "sábana" también se usa con un segundo significado, más común en
+> equipos de ingeniería (no de datos): una **vista o tablero que junta
+> muchos Pull Requests en una sola tabla larga** para verlos todos de un
+> vistazo — por ejemplo, "pásame la sábana de PRs abiertos" pide una lista
+> con todos los PRs pendientes de revisión, su autor, estado de CI y
+> antigüedad, en lugar de revisarlos uno por uno en GitHub. La idea de
+> fondo es la misma en ambos casos: "algo extendido/desplegado para ver
+> todo junto de un vistazo", solo que aplicado a filas de datos en un caso
+> y a PRs en el otro.
+
 **Sharding**
 Dividir una base de datos grande en piezas más pequeñas ("shards"),
 generalmente distribuidas en distintos servidores, para que ninguna pieza
