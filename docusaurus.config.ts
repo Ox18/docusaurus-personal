@@ -41,7 +41,7 @@ const config: Config = {
 
   // Habilita el renderizado real de diagramas Mermaid dentro de bloques
   // ```mermaid. Sin esto, Docusaurus los muestra como texto/código plano
-  // — es exactamente lo que estaba pasando antes de este fix.
+  // — es exactamente lo que te estaba pasando.
   markdown: {
     mermaid: true,
   },
@@ -93,6 +93,15 @@ const config: Config = {
           sidebarId: 'docsSidebar',
           position: 'left',
           label: 'Conocimiento',
+        },
+        {
+          // Link directo y siempre visible al glosario técnico. Antes solo
+          // vivía dentro del árbol del sidebar (fácil de no ver nunca) —
+          // como es la página que resuelve "no entiendo esta palabra", debe
+          // ser imposible de perder desde cualquier tema.
+          to: '/glosario',
+          label: '📖 Glosario',
+          position: 'left',
         },
         {
           href: 'https://github.com',

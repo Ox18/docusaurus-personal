@@ -52,6 +52,13 @@ Gastar más tiempo debatiendo un detalle trivial (el color de un botón) que
 una decisión realmente importante (la arquitectura del sistema), porque el
 detalle trivial es más fácil de opinar para todos.
 
+**Bullets (bullet points)**
+Los puntos de una lista — el " • " o " - " que usas para enumerar cosas en
+vez de escribir en párrafos. En comunicación senior, "escribir en bullets"
+a veces se usa como crítica: bullets sueltos y genéricos dejan que el autor
+esconda que no pensó el problema a fondo, por eso Amazon prefiere prosa
+completa en decisiones importantes (ver [Written Communication](/volume-1-soft-skills/communication/written-communication)).
+
 **Blameless (postmortem)**
 Analizar un incidente asumiendo que cualquier persona, con la misma
 información y presión de tiempo, habría cometido el mismo error — la
