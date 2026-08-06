@@ -33,6 +33,32 @@ Documento corto que registra una decisión de arquitectura ya tomada, junto
 con el contexto y las alternativas que se descartaron y por qué. Ver
 [Written Communication](/volume-1-soft-skills/communication/written-communication).
 
+**Amarre / hacer un amarre**
+Una conexión improvisada entre dos sistemas que no fueron diseñados para
+hablar entre sí — se resuelve con lo que hay a mano (un script, un
+webhook, un cron) en vez de una integración "correcta" y bien diseñada.
+No es necesariamente malo: muchos amarres funcionan años en producción,
+pero rara vez son bonitos. "Hicimos un amarre con la API vieja mientras
+migramos" significa una solución temporal para conectar dos sistemas que
+no se comunican de forma nativa.
+
+**Ambiente**
+El equivalente en español latinoamericano de "environment": el conjunto
+de infraestructura y configuración donde corre una versión del sistema —
+desarrollo, pruebas (QA/staging) o producción. En España se dice más
+"entorno"; en gran parte de Latinoamérica, "ambiente" es la palabra que
+vas a escuchar en el día a día ("levanta el ambiente de QA", "eso se
+rompió en el ambiente de producción").
+
+**Apagar incendios**
+Trabajar reactivamente resolviendo emergencias urgentes en vez de avanzar
+en el trabajo planeado — lo opuesto a trabajo preventivo. "Esta semana no
+avancé nada, estuve apagando incendios" significa que la mayoría del
+tiempo se fue resolviendo problemas urgentes no planificados. Ver también
+[Ownership y Liderazgo Técnico](/volume-1-soft-skills/leadership/leadership-mindset)
+— el anti-patrón "El Bombero Héroe" describe a quien solo aparece para
+apagar incendios, sin hacer trabajo preventivo.
+
 **At-least-once delivery**
 Garantía de un sistema de mensajería de que un mensaje llegará una o más
 veces — nunca cero, pero puede llegar duplicado. Por eso los consumidores
@@ -84,6 +110,20 @@ para detectar problemas antes de exponerla a todos. El nombre viene de los
 canarios que los mineros usaban para detectar gas tóxico antes de que
 afectara a las personas.
 
+**Chapuza**
+Una solución rápida, mal hecha y a sabiendas de que está mal hecha — un
+remiendo que "funciona" pero que nadie defendería en una revisión seria.
+Se diferencia de un workaround honesto en que una chapuza generalmente se
+hace con prisa y todos saben, desde el principio, que hay que volver a
+arreglarla bien después (aunque casi nunca se vuelve).
+
+**Chicharrón**
+Un problema complicado, desagradable y sin solución obvia que alguien te
+"deja" o hereda — muy usado en Colombia y Venezuela. "Me dejaron un
+chicharrón" significa que heredaste un problema difícil que otra persona
+no resolvió (o no quiso resolver) antes de irse o de pasarlo a otro
+equipo.
+
 **Circuit Breaker**
 Patrón que "corta el circuito" hacia un servicio que está fallando
 repetidamente, respondiendo con un fallback rápido en vez de seguir
@@ -93,6 +133,26 @@ intentando y agotar recursos esperando timeouts.
 El tiempo extra que tarda un sistema (especialmente serverless) en
 responder la primera vez, porque tiene que "arrancar" desde cero antes de
 procesar la petición.
+
+**Colgado / colgarse**
+Cuando un proceso, servicio o máquina deja de responder sin necesariamente
+caerse del todo — sigue "vivo" técnicamente pero no procesa nada útil.
+"El servidor se colgó" es distinto de "el servidor se cayó": colgado
+sigue respondiendo (por ejemplo a un ping) pero no hace nada útil; caído
+ya ni siquiera responde.
+
+**Cuadrar**
+Hacer que dos conjuntos de números o datos coincidan exactamente — muy
+usado en equipos de datos y finanzas. "Cuadrar la sábana de ventas con el
+sistema contable" significa verificar que ambos reporten las mismas
+cifras, y si no cuadran, investigar por qué.
+
+**Culebra**
+Un problema recurrente y no resuelto de raíz que sigue "mordiendo" cada
+tanto tiempo — muy usado en Colombia y Venezuela, donde también se aplica
+a deudas pendientes. "Ese bug de concurrencia es una culebra" significa
+que reaparece periódicamente y nadie lo ha arreglado de fondo, solo se
+parcha cada vez que vuelve a morder.
 
 ---
 
@@ -162,9 +222,22 @@ Código antiguo que sigue en producción, generalmente sin documentación
 clara ni el contexto original de por qué se hizo así — no es un insulto,
 es una descripción neutral de código con historia.
 
+**Levantar (un ambiente/servicio)**
+Iniciar o poner en marcha un servicio, servidor o ambiente completo — lo
+opuesto de "tumbar". "Levanta el ambiente de staging" significa iniciar
+toda la infraestructura necesaria para que ese ambiente esté disponible y
+funcionando.
+
 ---
 
 ## M
+
+**Meter mano**
+Intervenir directamente en el código o sistema para solucionar algo,
+generalmente de forma rápida y sin mucho proceso formal. "Voy a meter
+mano al script de deploy" significa modificarlo directamente, sin
+necesariamente pasar por todo el proceso de revisión que usarías para un
+cambio grande.
 
 **Monolito**
 Aplicación donde toda la lógica de negocio vive en un único proceso
@@ -198,6 +271,13 @@ detén lo que estás haciendo". P1 = grave pero no total. P2 = importante
 pero puede esperar hasta el próximo día hábil. Los números y su
 significado exacto varían por empresa.
 
+**Parche / parchar**
+Una corrección rápida y puntual para un problema específico, sin resolver
+la causa raíz — el primo cercano de un hotfix, pero más informal y
+generalmente más pequeño en alcance. "Le puse un parche mientras
+encontramos la causa real" es una admisión honesta de que la solución es
+temporal.
+
 **Playbook / Runbook**
 Documento con los pasos exactos a seguir ante una situación conocida (ej.
 "la base de datos está lenta") — para no tener que pensar desde cero en
@@ -224,6 +304,13 @@ y notoriamente difícil de reproducir.
 **Rate limiting (throttling)**
 Limitar cuántas peticiones puede hacer un cliente en un periodo de tiempo,
 para proteger el sistema de ser saturado (a propósito o por accidente).
+
+**Regarla**
+Cometer un error, generalmente uno con consecuencias visibles. "La regué
+con el deploy de ayer" es una forma directa y sin rodeos de admitir un
+error — y admitirlo así, rápido y sin adornos, es justo lo que describe el
+tema de [Ownership y Liderazgo Técnico](/volume-1-soft-skills/leadership/leadership-mindset)
+sobre depositar en el "banco de confianza técnica".
 
 **Rollback**
 Revertir un cambio o despliegue a la versión anterior, generalmente porque
@@ -284,6 +371,12 @@ a construir algo con ella.
 ## T
 
 **Tech debt** — ver **Deuda técnica**.
+
+**Tumbar (un servicio/ambiente)**
+Apagar o derribar intencionalmente un servicio, servidor o ambiente — lo
+opuesto de "levantar". "Vamos a tumbar el ambiente de staging para
+liberar recursos" significa apagarlo deliberadamente, no que se cayó por
+error.
 
 ---
 
