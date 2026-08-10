@@ -95,6 +95,15 @@ const config: Config = {
           label: 'Conocimiento',
         },
         {
+          // Los objetivos responden "¿y ahora qué hago?" — la pregunta que
+          // aparece justo después de estudiar un tema. Si vive solo dentro
+          // del árbol del sidebar se consulta una vez y se olvida; como
+          // link fijo se vuelve el punto de retorno entre tema y tema.
+          to: '/objetivos',
+          label: '🎯 Objetivos',
+          position: 'left',
+        },
+        {
           // Link directo y siempre visible al glosario técnico. Antes solo
           // vivía dentro del árbol del sidebar (fácil de no ver nunca) —
           // como es la página que resuelve "no entiendo esta palabra", debe

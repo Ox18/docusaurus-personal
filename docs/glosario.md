@@ -73,6 +73,18 @@ Cuando un sistema le "avisa" a quien le envía datos que vaya más despacio
 porque no da abasto — como decirle a alguien que hable más lento porque no
 alcanzas a anotar. Común en streams de datos y colas de mensajes.
 
+**Brag document**
+Tu registro personal de logros con fecha, números y enlace al artefacto.
+No es vanidad: es que nadie —ni tu manager— lleva la cuenta de tu trabajo
+por ti, y en la evaluación anual se recuerda cerca de un mes de doce. Ver
+[Bitácora de Evidencia](/objetivos/bitacora-de-evidencia).
+
+**Build vs. Buy (construir o comprar)**
+La decisión de desarrollar una capacidad en casa o pagar por un producto
+que ya la resuelve. La pregunta que la decide no es "¿podemos hacerlo?"
+(casi siempre sí), sino "¿esto es parte de por qué nos eligen nuestros
+clientes?". Ver [Ruta hacia Arquitecto](/objetivos/ruta-arquitecto).
+
 **Bikeshedding**
 Gastar más tiempo debatiendo un detalle trivial (el color de un botón) que
 una decisión realmente importante (la arquitectura del sistema), porque el
@@ -109,6 +121,12 @@ Lanzar una nueva versión a un pequeño porcentaje de usuarios primero (1-5%)
 para detectar problemas antes de exponerla a todos. El nombre viene de los
 canarios que los mineros usaban para detectar gas tóxico antes de que
 afectara a las personas.
+
+**Camino crítico (critical path)**
+La cadena de tareas que determina la fecha final de un proyecto: si
+cualquiera de ellas se atrasa, todo el proyecto se atrasa. Identificarlo es
+lo primero que hace un tech lead al planear, porque acelerar tareas que
+*no* están en el camino crítico no adelanta nada.
 
 **Chapuza**
 Una solución rápida, mal hecha y a sabiendas de que está mal hecha — un
@@ -355,6 +373,12 @@ pod/contenedor) para encargarse de una responsabilidad transversal —
 logging, seguridad, proxy de red— sin que la aplicación principal tenga
 que saber de ello.
 
+**SPOF (Single Point of Failure)**
+Un componente que, si se cae, tumba todo el sistema — no hay redundancia ni
+alternativa. La base de datos única, el balanceador sin réplica, o la
+persona que es la única que sabe cómo se despliega (los SPOF humanos
+también cuentan, y suelen ser los más ignorados).
+
 **SLA / SLO / SLI**
 SLA (Service Level Agreement) = el compromiso formal con el cliente (ej.
 "99.9% de disponibilidad"). SLO (Objective) = la meta interna que te
@@ -369,6 +393,13 @@ a construir algo con ella.
 ---
 
 ## T
+
+**TCO (Total Cost of Ownership)**
+El costo total de una solución durante toda su vida, no solo el de
+construirla: infraestructura mensual, licencias, horas de desarrollo,
+mantenimiento anual y el costo de migrar fuera si sale mal. Comparar dos
+opciones por su precio inicial en vez de su TCO es el error de estimación
+más frecuente en decisiones de arquitectura.
 
 **Tech debt** — ver **Deuda técnica**.
 

@@ -11,6 +11,11 @@ tags: [career, catalog]
 
 # Volumen VI — Career Growth
 
+> 🎯 **La parte accionable ya existe y vive aparte:**
+> [Objetivos y Misiones](/objetivos) — el autodiagnóstico de nivel y las
+> misiones concretas para Senior, Tech Lead y Solutions Architect. Este
+> volumen cubrirá la teoría y el contexto detrás de ese camino.
+
 | Tema | Estado |
 |---|---|
 | Junior → Mid: qué te bloquea | 🔜 Planeado |

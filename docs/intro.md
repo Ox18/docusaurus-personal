@@ -43,6 +43,17 @@ Salud mental, balance, hábitos de long-term learning.
 3. **Enseña**: Explica lo que aprendiste a otros
 4. **Revisa**: Vuelve a temas antiguos periódicamente
 
+## 🎯 ¿Y qué hago con todo esto?
+
+Los volúmenes te enseñan **qué saber**. La sección de
+[Objetivos y Misiones](/objetivos) es lo otro: **qué hacer**. Son misiones
+concretas — con una señal verificable de que ya las lograste — para pasar de
+Mid a Senior, de Senior a Tech Lead, y para construir con años de anticipación
+el perfil de Solutions Architect.
+
+Empieza por el autodiagnóstico: te dice en qué punto estás hoy y qué dos
+misiones te conviene atacar este trimestre.
+
 ## 🔍 Búsqueda
 
 Presiona **Cmd+K** (Mac) o **Ctrl+K** (Windows/Linux) para buscar cualquier tema.
