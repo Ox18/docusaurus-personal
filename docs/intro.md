@@ -8,6 +8,15 @@ slug: /
 Bienvenido a **EKS** - Tu plataforma de conocimiento profesional diseñada para acompañarte
 en tu viaje hacia **Staff Engineer** y **Solutions Architect**.
 
+:::tip EKS son dos libros
+Este es el **libro de ingeniería**: arquitectura, labs, entrevistas técnicas y carrera.
+
+El segundo es [🗣️ **Inglés para Ingenieros**](/ingles) — un mini-libro aparte, para
+dummies, con secciones cortas, perlas escondidas y actividades diarias, pensado para
+aprender rápido el inglés que se usa en standups, code reviews, incidentes y entrevistas.
+Vive separado a propósito: se estudia en secuencia y con práctica diaria, no por consulta.
+:::
+
 ## 📚 Los 7 Volúmenes
 
 Esta plataforma está organizada en 7 volúmenes que cubren todos los aspectos del crecimiento
@@ -64,6 +73,13 @@ Cada tema tiene, al final, un **Diccionario Rápido** con los términos que
 usa. Si algo no está ahí, revisa el [Glosario Técnico](/glosario) —
 jerga de industria como "sábana", "blameless", "canary release" y
 muchas más, explicadas sin rodeos.
+
+## 🗣️ ¿Y el inglés?
+
+El inglés dejó de ser un volumen de este libro para ser su propio libro:
+[**Inglés para Ingenieros**](/ingles). Empieza por el
+[diagnóstico](/ingles/arranque/diagnostico) (10 minutos) y sigue el
+[plan de 30 días](/ingles/practica/plan-30-dias) de 20 minutos diarios.
 
 ---
 

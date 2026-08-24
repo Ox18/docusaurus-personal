@@ -1,0 +1,9 @@
+{
+  "label": "📚 Referencia",
+  "position": 8,
+  "link": {
+    "type": "generated-index",
+    "description": "Glosario español ↔ inglés de la jerga que usas cada día, y el índice completo de las Perlas Escondidas del libro.",
+    "slug": "/referencia"
+  }
+}

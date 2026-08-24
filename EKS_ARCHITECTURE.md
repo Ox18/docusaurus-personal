@@ -101,6 +101,40 @@ no por moda" del tema de Monolito.
 
 ## 3. Estructura de Información
 
+### 3.0 EKS son dos libros, no uno
+
+EKS se divide en **dos instancias independientes** del plugin de docs:
+
+| Libro | Carpeta | Ruta | Sidebar | Cómo se consume |
+|---|---|---|---|---|
+| **Ingeniería** | `docs/` | `/` | `sidebars.ts` | Por consulta: entras a buscar un tema |
+| **Inglés para Ingenieros** | `english/` | `/ingles` | `sidebarsEnglish.ts` | En secuencia: se recorre módulo a módulo con práctica diaria |
+
+**Por qué separados y no como "Volumen VIII".** No es una decisión
+estética — son dos modos de estudio incompatibles dentro de un mismo
+árbol. El libro técnico se consulta (llegas por búsqueda, lees un tema,
+te vas) y su orden lo define un grafo de prerequisitos. El de inglés se
+recorre (Módulo 0 → 5, 20 minutos diarios, con actividades que dependen
+de haber hecho la del día anterior) y su valor depende de la secuencia.
+Mezclarlos habría roto dos cosas concretas: la navegación prev/next
+(saltarías de "Event-Driven Architecture" a "Los 8 sonidos") y el
+sidebar del libro técnico, que dejaría de ser un índice de conocimiento
+para volverse una mezcla de temario y curso.
+
+Como instancias separadas, cada libro tiene su propio home, su propio
+prev/next y su propia entrada en el navbar — y el costo es una entrada
+de ~10 líneas en `plugins` de `docusaurus.config.ts`.
+
+El libro de inglés tiene además su propia convención: las carpetas van
+**numeradas** (`00-arranque`, `01-gramatica-minima`, ...) porque el
+orden es contenido, no metadata. Docusaurus elimina el prefijo numérico
+de la URL final (`/ingles/arranque/diagnostico`), así que el número
+ordena sin ensuciar los links. Cada `_category_.json` fija un `slug`
+explícito (`/ingles/modulo-0-arranque`) para que las páginas índice de
+módulo no hereden URLs generadas desde labels con emoji.
+
+### 3.1 Libro de ingeniería
+
 ```
 docs/
 ├── intro.md                              (slug: /, página de bienvenida)
@@ -123,6 +157,31 @@ docs/
 └── volume-7-personal/
     └── postmortems/
 ```
+
+### 3.2 Libro de inglés
+
+```
+english/
+├── intro.md                              (slug: /, portada del libro)
+├── como-usar-este-libro.md               (el método: 20 min/día)
+├── 00-arranque/                          (diagnóstico, sonidos, kit de frases)
+├── 01-gramatica-minima/                  (7 reglas, 3 tiempos, verbos, errores)
+├── 02-ingles-de-trabajo/                 (standup, code review, reuniones,
+│                                          Slack/email, incidentes)
+├── 03-oido-y-boca/                       (shadowing, listening, pronunciación
+│                                          de jerga técnica)
+├── 04-entrevistas/                       (pitch, STAR, system design, salario)
+├── 05-practica/                          (plan de 30 días, ejercicios, tarjetas)
+└── 06-referencia/                        (glosario ES↔EN, índice de perlas)
+```
+
+**Estándar de calidad propio.** Cada tema del libro de inglés lleva:
+resumen ejecutivo, explicación ELI5, objetivos, contenido con frases
+copiables, al menos una 💎 Perla Escondida numerada, **actividades con
+soluciones desplegables** y un Diccionario Rápido. Las perlas están
+numeradas de forma global y agregadas en
+`english/06-referencia/perlas.md` — es la página de mayor densidad del
+libro y funciona como resumen ejecutivo de todo.
 
 **Decisión: Case Studies vive dentro de Volumen III (Architecture), no
 como volumen propio.** Tu brief original los describe como una sección

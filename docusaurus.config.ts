@@ -47,6 +47,28 @@ const config: Config = {
   },
   themes: ['@docusaurus/theme-mermaid'],
 
+  // SEGUNDO LIBRO — "Inglés para Ingenieros".
+  //
+  // EKS ahora son dos libros, no uno: el de ingeniería (instancia `default`,
+  // servida en "/") y el de inglés (esta instancia, servida en "/ingles").
+  // Son instancias separadas del plugin de docs a propósito: cada una tiene
+  // su propio sidebar, su propia navegación prev/next y su propio "home".
+  // Meter el inglés como un volumen más del libro técnico habría mezclado
+  // dos formas de estudiar completamente distintas — el libro técnico se
+  // consulta por tema, este se recorre en secuencia y con práctica diaria.
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'english',
+        path: 'english',
+        routeBasePath: 'ingles',
+        sidebarPath: './sidebarsEnglish.ts',
+        editUrl: 'https://github.com/Ox18/docusaurus-personal/tree/main/',
+      },
+    ],
+  ],
+
   presets: [
     [
       'classic',
@@ -92,7 +114,18 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'docsSidebar',
           position: 'left',
-          label: 'Conocimiento',
+          label: '🛠️ Ingeniería',
+        },
+        {
+          // El segundo libro necesita su propia entrada de primer nivel, no
+          // un link escondido dentro del árbol técnico: son dos hábitos de
+          // estudio distintos y el usuario entra al sitio sabiendo cuál de
+          // los dos viene a hacer hoy.
+          type: 'docSidebar',
+          sidebarId: 'englishSidebar',
+          docsPluginId: 'english',
+          position: 'left',
+          label: '🗣️ Inglés',
         },
         {
           // Los objetivos responden "¿y ahora qué hago?" — la pregunta que
